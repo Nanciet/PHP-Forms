@@ -2,7 +2,16 @@
 require_once "../classes/FormHandler.php";
 
 $formHandler = new FormHandler();
-$data = $formHandler->getAllData();
+
+// Pagination setup
+$limit = 5;
+$totalRecords = $formHandler->getTotalRecords();
+$totalPages = ceil($totalRecords / $limit);
+$page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+$page = max($page, 1); // Ensure the page number is at least 1
+$offset = ($page - 1) * $limit;
+
+$data = $formHandler->getAllData($limit, $offset);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,7 +34,7 @@ $data = $formHandler->getAllData();
                         <th>Website</th>
                         <th>Comment</th>
                         <th>Gender</th>
-                        <th>Created At</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -37,7 +46,10 @@ $data = $formHandler->getAllData();
                             <td><?= $row['website'] ?></td>
                             <td><?= $row['comment'] ?></td>
                             <td><?= $row['gender'] ?></td>
-                            <td><?= $row['created_at'] ?></td>
+                            <td>
+                                <a href="edit.php?id=<?= $row['id'] ?>">Edit</a>
+                                <a href="../delete_record.php?id=<?= $row['id'] ?>" onclick="return confirm('Are you sure?')">Delete</a>
+                            </td>
                         </tr>
                     <?php endwhile; ?>
                 </tbody>
@@ -45,6 +57,12 @@ $data = $formHandler->getAllData();
         <?php else: ?>
             <p>No records found.</p>
         <?php endif; ?>
+
+        <div class="pagination">
+            <?php for ($i = 1; $i <= $totalPages; $i++): ?>
+                <a href="?page=<?= $i ?>" <?= $i == $page ? 'class="active"' : '' ?>><?= $i ?></a>
+            <?php endfor; ?>
+        </div>
     </div>
 </body>
 </html>

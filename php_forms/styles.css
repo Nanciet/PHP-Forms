@@ -1,64 +1,131 @@
+/* General styles */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
     color: #333;
 }
 
 .container {
-    width: 50%;
-    margin: 0 auto;
-    background: #fff;
+    max-width: 1000px; /* Increased max-width to accommodate wider tables */
+    margin: 30px auto;
     padding: 20px;
+    background: white;
+    border: 1px solid #ddd;
     border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow-x: auto; /* Ensure horizontal scroll for overflow */
+    text-align: center; /* Center-align content */
 }
 
-h1 {
-    text-align: center;
-}
-
+/* Form styles */
 form {
     display: flex;
     flex-direction: column;
+    gap: 15px;
+    align-items: center; /* Center form elements horizontally */
 }
 
 label {
-    margin-top: 10px;
+    font-weight: bold;
 }
 
-input, textarea, select, button {
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+input[type="text"],
+input[type="email"],
+input[type="url"],
+textarea,
+select,
+button {
+    width: 100%;
+    max-width: 300px; /* Set a max width for input fields */
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+textarea {
+    height: 80px;
 }
 
 button {
-    margin-top: 20px;
+    width: auto;
+    max-width: 150px;
     background-color: #5cb85c;
     color: white;
+    border: none;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 button:hover {
     background-color: #4cae4c;
 }
 
+/* Table styles */
 table {
     width: 100%;
-    margin-top: 20px;
     border-collapse: collapse;
+    margin-top: 20px;
 }
 
-table, th, td {
+table th,
+table td {
     border: 1px solid #ddd;
-}
-
-th, td {
+    text-align: center; /* Center-align table content */
     padding: 10px;
-    text-align: left;
+    word-wrap: break-word; /* Prevent text overflow */
+    max-width: 150px; /* Set a max width for table cells */
+    overflow-wrap: break-word; /* Handle long text */
 }
 
-th {
-    background-color: #f2f2f2;
+table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Pagination styles */
+.pagination {
+    margin: 15px 0;
+    text-align: center;
+}
+
+.pagination a {
+    text-decoration: none;
+    padding: 8px 12px;
+    margin: 0 5px;
+    border: 1px solid #ddd;
+    color: #333;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.pagination a.active {
+    background-color: #5cb85c;
+    color: white;
+    border: 1px solid #5cb85c;
+}
+
+.pagination a:hover {
+    background-color: #ddd;
+}
+
+/* Additional styles for centering and larger containers */
+.container table {
+    margin: 0 auto; /* Center the table inside the container */
+}
+
+.container h1 {
+    text-align: center; /* Center-align the title */
+    margin-bottom: 20px;
 }

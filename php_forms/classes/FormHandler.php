@@ -22,8 +22,38 @@ class FormHandler {
         return $this->db->query($sql);
     }
 
-    public function getAllData() {
-        $sql = "SELECT * FROM user_data";
+    public function getAllData($limit, $offset) {
+        $sql = "SELECT * FROM user_data ORDER BY created_at DESC LIMIT $limit OFFSET $offset";
+        return $this->db->query($sql);
+    }
+
+    public function getTotalRecords() {
+        $sql = "SELECT COUNT(*) AS total FROM user_data";
+        $result = $this->db->query($sql);
+        return $result->fetch_assoc()['total'];
+    }
+
+    public function getRecordById($id) {
+        $sql = "SELECT * FROM user_data WHERE id = $id";
+        return $this->db->query($sql)->fetch_assoc();
+    }
+
+    public function updateRecord($id, $data) {
+        $name = $this->db->real_escape_string($data['name']);
+        $email = $this->db->real_escape_string($data['email']);
+        $website = $this->db->real_escape_string($data['website']);
+        $comment = $this->db->real_escape_string($data['comment']);
+        $gender = $this->db->real_escape_string($data['gender']);
+
+        $sql = "UPDATE user_data SET 
+                name='$name', email='$email', website='$website', comment='$comment', gender='$gender' 
+                WHERE id=$id";
+
+        return $this->db->query($sql);
+    }
+
+    public function deleteRecord($id) {
+        $sql = "DELETE FROM user_data WHERE id=$id";
         return $this->db->query($sql);
     }
 }
