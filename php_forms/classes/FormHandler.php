@@ -23,10 +23,13 @@ class FormHandler {
     }
 
     public function getAllData($limit, $offset) {
-        $sql = "SELECT * FROM user_data ORDER BY created_at DESC LIMIT $limit OFFSET $offset";
-        return $this->db->query($sql);
+        $query = "SELECT * FROM user_data ORDER BY id ASC LIMIT ? OFFSET ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("ii", $limit, $offset);
+        $stmt->execute();
+        return $stmt->get_result();
     }
-
+    
     public function getTotalRecords() {
         $sql = "SELECT COUNT(*) AS total FROM user_data";
         $result = $this->db->query($sql);

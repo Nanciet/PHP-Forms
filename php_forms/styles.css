@@ -8,7 +8,7 @@ body {
 }
 
 .container {
-    max-width: 1000px; /* Increased max-width to accommodate wider tables */
+    max-width: 800px; /* Increased max-width to accommodate wider tables */
     margin: 30px auto;
     padding: 20px;
     background: white;
@@ -38,7 +38,7 @@ textarea,
 select,
 button {
     width: 100%;
-    max-width: 300px; /* Set a max width for input fields */
+    max-width: 500px; /* Set a max width for input fields */
     padding: 8px;
     font-size: 16px;
     border: 1px solid #ccc;
@@ -51,7 +51,7 @@ textarea {
 }
 
 button {
-    width: auto;
+    width: 200px;
     max-width: 150px;
     background-color: #5cb85c;
     color: white;
@@ -128,4 +128,29 @@ table tr:hover {
 .container h1 {
     text-align: center; /* Center-align the title */
     margin-bottom: 20px;
+}
+/* Navigation bar styles */
+.navbar {
+    background-color: #333;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    display: inline-block;
+    transition: background-color 0.3s;
+}
+
+.navbar a:hover {
+    background-color: #575757;
+    border-radius: 4px;
+}
+
+.navbar a.active {
+    background-color: #5cb85c;
+    border-radius: 4px;
 }
