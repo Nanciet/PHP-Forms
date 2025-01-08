@@ -15,7 +15,7 @@ $data = $user_detail-> getRecordById($id);
 </head>
 <body>
     <div class="navbar">
-        <a href="form.php">Form Page</a>
+        <a href="views/form.php">Form Page</a>
         <a href="views/display.php">Stored Data</a>
     </div>
     <div class="view-container">
