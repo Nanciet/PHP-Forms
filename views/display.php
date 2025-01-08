@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles.css">
     <title>Stored Data</title>
+    <link rel="stylesheet" href="../styles.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <div class="navbar">
@@ -48,9 +51,23 @@
                     <td><?= $row['website'] ?></td>
                     <td><?= $row['comment'] ?></td>
                     <td><?= $row['gender'] ?></td>
-                    <td>
+                    <!-- <td>
                         <a href="edit.php?id=<?= $row['id'] ?>">Edit</a>
                         <a href="../delete_record.php?id=<?= $row['id'] ?>" onclick="return confirm('Are you sure?')">Delete</a>
+                    </td> -->
+                    <td>
+                        <!-- View Icon -->
+                        <a href="../view_record.php?id=<?= $row['id'] ?>" class="action-icon view-icon" title="View">
+                            <i class="fas fa-eye"></i>
+                        </a>
+                        <!-- Edit Icon -->
+                        <a href="../edit.php?id=<?= $row['id'] ?>" class="action-icon edit-icon" title="Edit">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                        <!-- Delete Icon -->
+                        <a href="../delete_record.php?id=<?= $row['id'] ?>" class="action-icon delete-icon" title="Delete" onclick="return confirm('Are you sure?')">
+                            <i class="fas fa-trash-alt"></i>
+                        </a>
                     </td>
                 </tr>
                 <?php endwhile; ?>

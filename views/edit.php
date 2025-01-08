@@ -24,16 +24,16 @@ if (!$record) {
             <input type="hidden" name="id" value="<?= $id ?>">
             
             <label for="name">Name:</label>
-            <input type="text" id="name" name="name" value="<?= $record['name'] ?>" required>
+            <input type="text" id="name" name="name" value="<?= htmlspecialchars($record['name']) ?>" required>
             
             <label for="email">E-mail:</label>
-            <input type="email" id="email" name="email" value="<?= $record['email'] ?>" required>
+            <input type="email" id="email" name="email" value="<?= htmlspecialchars($record['email']) ?>" required>
             
             <label for="website">Website:</label>
-            <input type="url" id="website" name="website" value="<?= $record['website'] ?>">
+            <input type="url" id="website" name="website" value="<?= htmlspecialchars($record['website']) ?>">
             
             <label for="comment">Comment:</label>
-            <textarea id="comment" name="comment"><?= $record['comment'] ?></textarea>
+            <textarea id="comment" name="comment"><?= htmlspecialchars($record['comment']) ?></textarea>
             
             <label for="gender">Gender:</label>
             <select id="gender" name="gender" required>

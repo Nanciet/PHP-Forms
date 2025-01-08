@@ -154,3 +154,90 @@ table tr:hover {
     background-color: #5cb85c;
     border-radius: 4px;
 }
+
+/* View Record Page Styles */
+.view-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+.view-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.view-container table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.view-container table th,
+.view-container table td {
+    text-align: left;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.print-btn {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.print-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Print-Specific Styles */
+@media print {
+    body {
+        margin: 0;
+        padding: 0;
+    }
+    .view-container {
+        border: none;
+        box-shadow: none;
+    }
+    .print-btn {
+        display: none; /* Hide the print button during printing */
+    }
+}
+
+.action-icon {
+    text-decoration: none;
+    margin: 0 5px;
+    font-size: 16px;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.action-icon:hover {
+    color: #007bff; /* Highlight color on hover */
+}
+
+.edit-icon {
+    color: #28a745; /* Green for edit */
+}
+
+.edit-icon:hover {
+    color: #218838; /* Darker green on hover */
+}
+
+.delete-icon {
+    color: #dc3545; /* Red for delete */
+}
+
+.delete-icon:hover {
+    color: #c82333; /* Darker red on hover */
+}
