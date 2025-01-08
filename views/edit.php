@@ -18,6 +18,10 @@ if (!$record) {
     <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
+    <div class="navbar">
+            <a href="form.php">Form Page</a>
+            <a href="display.php">Stored Data</a>
+    </div>
     <div class="container">
         <h1>Edit Record</h1>
         <form action="../update_form.php" method="POST">

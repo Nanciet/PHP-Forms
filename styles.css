@@ -212,8 +212,11 @@ table tr:hover {
     .print-btn {
         display: none; /* Hide the print button during printing */
     }
+        .navbar, h1 {
+            display: none;
+        }
 }
-
+    
 .action-icon {
     text-decoration: none;
     margin: 0 5px;
