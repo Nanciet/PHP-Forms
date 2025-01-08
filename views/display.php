@@ -61,7 +61,7 @@
                             <i class="fas fa-eye"></i>
                         </a>
                         <!-- Edit Icon -->
-                        <a href="../edit.php?id=<?= $row['id'] ?>" class="action-icon edit-icon" title="Edit">
+                        <a href="../views/edit.php?id=<?= $row['id'] ?>" class="action-icon edit-icon" title="Edit">
                             <i class="fas fa-edit"></i>
                         </a>
                         <!-- Delete Icon -->
